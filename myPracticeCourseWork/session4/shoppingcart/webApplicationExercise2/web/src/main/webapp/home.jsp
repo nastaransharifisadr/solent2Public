@@ -30,6 +30,7 @@
         message = "adding "+itemName + " to cart";
         ShoppingItem shoppingItem = shoppingService.getNewItemByName(itemName);
         message = "adding "+itemName + " to cart : "+shoppingItem;
+        shoppingItem.setQuantity(1);
         shoppingCart.addItemToCart(shoppingItem);
     }
     if ("removeItemFromCart".equals(action)) {
@@ -101,6 +102,8 @@
                 </td>
             </tr>
             <% }%>
+            <p> The total result is <%=shoppingCart.getTotal()%>
+                    
 
         </table>
 

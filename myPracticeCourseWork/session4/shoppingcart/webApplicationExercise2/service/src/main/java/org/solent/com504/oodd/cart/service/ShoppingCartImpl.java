@@ -36,12 +36,19 @@ public class ShoppingCartImpl implements ShoppingCart {
 
     @Override
     public void removeItemFromCart(String itemUuid) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       itemMap.remove(itemUuid);
     }
 
     @Override
     public double getTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      double total = 0;
+
+        for (String itemUUID : itemMap.keySet()) {
+            ShoppingItem shoppingCartItem = itemMap.get(itemUUID);
+            total = total + shoppingCartItem.getPrice() * shoppingCartItem.getQuantity();
+        }
+
+        return total;
     }
 
 }
