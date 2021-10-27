@@ -10,8 +10,7 @@
 
 <%
     String creditcardno = request.getParameter("creditcardno");
-    CardValidationResult result = RegexCardValidator.isValid(creditcardno);
-    
+    CardValidationResult result = RegexCardValidator.isValid(creditcardno);  
 
    
 %>
