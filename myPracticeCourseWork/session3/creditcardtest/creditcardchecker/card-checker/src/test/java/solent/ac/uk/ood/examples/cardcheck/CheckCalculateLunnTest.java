@@ -9,6 +9,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import solent.ac.uk.ood.examples.cardcheck.CalculateLunnDigit;
 import static solent.ac.uk.ood.examples.cardcheck.TestRegexCardValidator.VALID_VISA_1;
+import java.util.Arrays;
+
 
 /**
  *
@@ -34,4 +36,41 @@ public class CheckCalculateLunnTest {
         assertTrue(result.isValid());
                 
     }
+    @Test
+    public void checkCalculateLuhnnullpan() {
+        
+        String pan = null; 
+
+           
+        CardValidationResult result = RegexCardValidator.isValid(pan);
+        
+        
+        System.out.println(result.getError());
+
+        assertFalse(result.isValid());
+        assertEquals(result.getError(),"card cannot be null" );
+                
+    }
+    @Test
+    public void checkCalculateLuhnnchecklengh() {
+        
+        for(int i=0; i<50;i++){  
+            if (i>=13 && i<=19) continue;
+            char[] chars = new char[i];
+            Arrays.fill(chars, '5');
+            String pan = new String(chars);
+            CardValidationResult result = RegexCardValidator.isValid(pan);     
+        
+            System.out.println(result.getError());
+            assertFalse(result.isValid());
+            assertEquals(result.getError(),"failed length check" );
+                
+
+        }
+    }
+    
+           
+      
+    
+    
 }

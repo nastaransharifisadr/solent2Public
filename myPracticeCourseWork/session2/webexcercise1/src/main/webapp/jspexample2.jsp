@@ -10,6 +10,7 @@
 
 // here we are looking for the userName value in the web request which called this page
     String name = request.getParameter("userName");
+    String addr=request.getParameter("Address");
 
 %>
 <!DOCTYPE html>
@@ -28,6 +29,7 @@
         <!-- get uses url encoded parameters -->
         <form action="./jspexample2.jsp" method="get">
             <p>user name <input type="text" name="userName" value=""></p>
+            <p>Address <input type="text" name="Address" value=""></p>
             <button type="submit" >add name using GET</button>
         </form> 
         <br>
@@ -36,6 +38,7 @@
         <form action="./jspexample2.jsp" method="post">
             <!-- here we are pre filling the value with the name variable -->
             <p>user name <input type="text" name="userName" value="<%=name %>"></p>
+            <p>Address <input type="text" name="Address" value="<%=addr %>"></p>
             <button type="submit" >add name using POST</button>
         </form> 
     </body>
